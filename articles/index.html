@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tous nos articles — Argan Atelier</title>
+  <meta name="description" content="Tous les articles d’Argan Atelier : bienfaits de l’huile d’argan, routines beauté, soins cheveux et ongles, guides pas-à-pas.">
+  <link rel="canonical" href="https://tarikbelhaj.github.io/atelierargan/articles/">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../styles.css">
+  <style>
+    /* Optionnel : petit style local pour l’intro */
+    .archive-intro{max-width:820px;margin:24px auto 8px;padding:0 24px;text-align:center}
+    .archive-intro p{opacity:.9}
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="logo" href="../">ARGAN ATELIER</a>
+      <nav class="nav-links" aria-label="Navigation principale">
+        <a href="../">Accueil</a>
+        <a href="./">Articles</a>
+        <a href="../#contact">Contact</a>
+      </nav>
+      <a class="btn" href="../#newsletter">S’abonner</a>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="archive-intro">
+      <h1>Articles</h1>
+      <p>Le meilleur de l’huile d’argan : bienfaits prouvés, routines step-by-step, et conseils concrets pour la peau, les cheveux et les ongles.</p>
+    </div>
+
+    <div class="container">
+      <!-- Filtres simples (placeholder pour plus tard) -->
+      <div class="filters" style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px;">
+        <a class="btn" href="./">Tout</a>
+        <a class="btn" href="#beaute">Beauté</a>
+        <a class="btn" href="#cheveux">Cheveux</a>
+        <a class="btn" href="#ongles">Ongles</a>
+      </div>
+
+      <!-- Grille d’articles -->
+      <div class="cards" itemscope itemtype="https://schema.org/ItemList">
+        <!-- 1. Bienfaits -->
+        <a class="card card-link" href="les-bienfaits-huile-d-argan.html" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <meta itemprop="position" content="1">
+          <img src="../assets/card-bienfaits.webp" alt="Les bienfaits de l’huile d’argan" loading="lazy" width="600" height="400" itemprop="image">
+          <h3 itemprop="name">Les bienfaits de l’huile d’argan</h3>
+          <p itemprop="description">Peau souple, brillance, protection : ce qui marche vraiment + routines rapides.</p>
+        </a>
+
+        <!-- 2. Comment utiliser -->
+        <a class="card card-link" href="comment-utiliser-huile-d-argan.html" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <meta itemprop="position" content="2">
+          <img src="../assets/card-utilisation.webp" alt="Comment utiliser l’huile d’argan" loading="lazy" width="600" height="400" itemprop="image">
+          <h3 itemprop="name">Comment utiliser l’huile d’argan</h3>
+          <p itemprop="description">Dosages, fréquences et combinaisons gagnantes peau/cheveux/ongles.</p>
+        </a>
+
+        <!-- 3. Cheveux brillants -->
+        <a class="card card-link" href="cheveux-brillants-huile-argan.html" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <meta itemprop="position" content="3">
+          <img src="../assets/card-cheveux.webp" alt="Cheveux brillants avec l’huile d’argan" loading="lazy" width="600" height="400" itemprop="image">
+          <h3 itemprop="name">Cheveux brillants</h3>
+          <p itemprop="description">Anti-frizz, protection chaleur, bain d’huile et finitions pro.</p>
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <p>© 2025 Argan Atelier. Tous droits réservés.</p>
+      <p>Fait avec ♥ et huile d’argan.</p>
+    </div>
+  </footer>
+
+  <!-- JSON-LD : liste d’articles -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"CollectionPage",
+    "name":"Articles — Argan Atelier",
+    "hasPart":[
+      {"@type":"Article","headline":"Les bienfaits de l’huile d’argan","url":"https://tarikbelhaj.github.io/atelierargan/articles/les-bienfaits-huile-d-argan.html"},
+      {"@type":"Article","headline":"Comment utiliser l’huile d’argan","url":"https://tarikbelhaj.github.io/atelierargan/articles/comment-utiliser-huile-d-argan.html"},
+      {"@type":"Article","headline":"Cheveux brillants avec l’huile d’argan","url":"https://tarikbelhaj.github.io/atelierargan/articles/cheveux-brillants-huile-argan.html"}
+    ]
+  }
+  </script>
+</body>
+</html>
