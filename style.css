@@ -181,3 +181,20 @@ nav a:hover {
 .article-card h4 {
     margin: 10px 0 5px;
 }
+.card-link {
+  display:block;
+  color:inherit;
+  text-decoration:none;
+  transition:transform .15s ease, box-shadow .2s ease, border-color .2s ease;
+}
+.card-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,0,0,.08);
+  border-color: #dbc8bb;
+}
+.card-link:focus-visible {
+  outline: 3px solid #7a4b2e33;
+  outline-offset: 3px;
+  border-radius: var(--radius);
+}
+
