@@ -1,0 +1,64 @@
+/* Argan Atelier — styles de base */
+:root{
+  --bg:#f7f0e6;
+  --paper:#fff6ee;
+  --ink:#4a2c20;
+  --brand:#7a4b2e;
+  --brand-strong:#5f3822;
+  --shade:#e0d4c8;
+  --radius:14px;
+}
+
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  font-family: Georgia, 'Times New Roman', serif;
+  background:var(--bg);
+  color:var(--ink);
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+
+.container{max-width:1120px;margin-inline:auto;padding:0 24px}
+
+.site-header{
+  background:var(--paper);
+  border-bottom:1px solid var(--shade);
+}
+.nav{
+  display:flex;align-items:center;gap:20px;justify-content:space-between;padding:16px 0;
+}
+.logo{font-weight:700;letter-spacing:.5px;color:var(--ink);text-decoration:none;font-size:1.25rem}
+.nav-links a{margin:0 10px;color:var(--ink);text-decoration:none}
+.nav-links a:hover{text-decoration:underline}
+.btn{
+  background:var(--brand);color:#fff;padding:10px 16px;border-radius:8px;text-decoration:none;display:inline-block;font-weight:600
+}
+.btn:hover{background:var(--brand-strong)}
+
+.hero{padding:56px 0}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:32px;align-items:center}
+.hero h1{font-size:clamp(2.2rem,3.6vw,3rem);margin:.2em 0}
+.hero p{max-width:50ch}
+
+.section{padding:56px 0 72px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{background:var(--paper);border:1px solid var(--shade);border-radius:var(--radius);padding:16px;box-shadow:0 2px 6px rgba(0,0,0,.05)}
+.card img{width:100%;height:auto;border-radius:10px;display:block;margin-bottom:12px}
+.card h3{margin:.4em 0 .2em;font-size:1.15rem}
+.card a{text-decoration:none;color:inherit}
+.card a:hover{text-decoration:underline}
+
+.site-footer{border-top:1px solid var(--shade);background:var(--paper);padding:24px 0}
+.footer-grid{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+
+/* Responsive */
+@media (max-width: 900px){
+  .hero-grid{grid-template-columns:1fr}
+  .cards{grid-template-columns:1fr 1fr}
+}
+@media (max-width: 560px){
+  .nav-links{display:none} /* version simple sans JS pour mobile */
+  .cards{grid-template-columns:1fr}
+}
