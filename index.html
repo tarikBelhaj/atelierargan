@@ -5,15 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Argan Atelier — Blog beauté à l’huile d’argan</title>
   <meta name="description" content="Blog beauté dédié à l’huile d’argan : bienfaits, routines peau & cheveux, recettes naturelles et astuces d’utilisation.">
-  <meta name="theme-color" content="#7a4b2e">
-
-  <!-- Open Graph / Social -->
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Argan Atelier — Blog beauté à l’huile d’argan">
-  <meta property="og:description" content="Bienfaits, routines et secrets de l’huile d’argan pour une beauté naturelle.">
-  <meta property="og:image" content="https://example.com/og-image.jpg">
-  <meta property="og:url" content="https://tarikBelhaj.github.io/atelierargan/">
-
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -21,7 +12,14 @@
   <header class="site-header">
     <div class="container nav">
       <a class="logo" href="/">ARGAN ATELIER</a>
-      <nav class="nav-links" aria-label="Navigation principale">
+
+      <!-- Burger (CSS only) -->
+      <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-hidden="true">
+      <label for="nav-toggle" class="nav-toggle-btn" aria-label="Ouvrir le menu" aria-controls="primary-nav">
+        <span></span><span></span><span></span>
+      </label>
+
+      <nav id="primary-nav" class="nav-links" aria-label="Navigation principale">
         <a href="#">Accueil</a>
         <a href="#">Articles</a>
         <a href="#">Beauté</a>
@@ -29,6 +27,7 @@
         <a href="#">À propos</a>
         <a href="#">Contact</a>
       </nav>
+
       <a class="btn" href="#" role="button">S’abonner</a>
     </div>
   </header>
@@ -40,13 +39,6 @@
           <h1>Huile d’argan</h1>
           <p>Astuce beauté naturelle pour une peau lumineuse et des cheveux brillants.</p>
           <a class="btn" href="#articles">Découvrir</a>
-        </div>
-        <div class="hero-media">
-          <img src="assets/atelier-argan-hero.webp"
-     alt="Deux femmes pressent a froid l'huile d'argan en atelier"
-     width="1200" height="900"
-     loading="eager" fetchpriority="high">
-
         </div>
       </div>
     </section>
@@ -81,20 +73,5 @@
       <p>Fait avec ♥ et huile d’argan.</p>
     </div>
   </footer>
-
-  <!-- Données structurées de base (JSON‑LD) -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "Argan Atelier",
-    "url": "https://tarikBelhaj.github.io/atelierargan/",
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": "https://tarikBelhaj.github.io/atelierargan/?q={q}",
-      "query-input": "required name=q"
-    }
-  }
-  </script>
 </body>
 </html>
