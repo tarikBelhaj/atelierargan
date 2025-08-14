@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ page.title }}</title>
+  <link rel="stylesheet" href="{{ '/styles.css' | relative_url }}">
+</head>
+<body>
+  <header>
+    <h1><a href="{{ '/' | relative_url }}">Argan Atelier</a></h1>
+    <nav>
+      <a href="{{ '/' | relative_url }}">Accueil</a> |
+      <a href="{{ '/blog' | relative_url }}">Articles</a>
+    </nav>
+  </header>
+  <main>
+    {{ content }}
+  </main>
+  <footer>
+    <p>© 2025 Argan Atelier. Tous droits réservés.</p>
+  </footer>
+</body>
+</html>
