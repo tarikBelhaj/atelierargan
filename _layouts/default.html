@@ -1,23 +1,31 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>{{ page.title }}</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{{ page.title }} | Argan Atelier</title>
   <link rel="stylesheet" href="{{ '/styles.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/style.css' | relative_url }}">
 </head>
 <body>
-  <header>
-    <h1><a href="{{ '/' | relative_url }}">Argan Atelier</a></h1>
-    <nav>
-      <a href="{{ '/' | relative_url }}">Accueil</a> |
-      <a href="{{ '/blog' | relative_url }}">Articles</a>
-    </nav>
+  <header style="padding:16px 0;">
+    <div style="max-width:1100px;margin:0 auto;padding:0 16px;">
+      <h1 style="margin:0;"><a href="{{ '/' | relative_url }}">Argan Atelier</a></h1>
+      <nav style="margin-top:8px;">
+        <a href="{{ '/' | relative_url }}">Accueil</a> |
+        <a href="{{ '/blog' | relative_url }}">Articles</a>
+      </nav>
+    </div>
   </header>
-  <main>
+
+  <main style="max-width:1100px;margin:24px auto;padding:0 16px;">
     {{ content }}
   </main>
-  <footer>
-    <p>© 2025 Argan Atelier. Tous droits réservés.</p>
+
+  <footer style="border-top:1px solid #eee;padding:16px 0;margin-top:40px;">
+    <div style="max-width:1100px;margin:0 auto;padding:0 16px;">
+      <p>© 2025 Argan Atelier. Tous droits réservés.</p>
+    </div>
   </footer>
 </body>
 </html>
