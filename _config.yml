@@ -1,94 +1,66 @@
-# --- Identité du site
-title: Argan Atelier
-tagline: "Beauté & bienfaits — l'huile d'argan, en profondeur"
-description: "Blog beauté dédié à l'huile d'argan : routines, bénéfices prouvés, conseils d'achat, comparatifs et protocoles experts."
-language: fr
-timezone: Europe/Paris
+---
+layout: default
+title: "Argan Atelier - Blog beauté huile d'argan"
+description: "Découvrez tous les secrets de l'huile d'argan : bienfaits, routines beauté, conseils d'achat et comparatifs d'experts."
+---
 
-# --- Domaine
-url: "https://huile-d-argan.fr"   # ton domaine custom
-baseurl: ""                        # laisser vide avec un domaine racine
+# Argan Atelier
+## Beauté & bienfaits — l'huile d'argan, en profondeur
 
-# --- Thème
-theme: minima
+<div class="intro-section">
+  <p>Bienvenue sur Argan Atelier, votre référence pour tout savoir sur l'huile d'argan. Découvrez nos articles, guides et conseils d'experts pour révéler la beauté naturelle de votre peau et de vos cheveux.</p>
+</div>
 
-# --- Plugins (tous supportés par GitHub Pages)
-plugins:
-  - jekyll-seo-tag      # balises SEO automatiques (title, og:, twitter:)
-  - jekyll-sitemap      # /sitemap.xml
-  - jekyll-feed         # /feed.xml (RSS)
-  - jekyll-paginate     # pagination
-  - jekyll-redirect-from
+---
 
-# --- Pagination
-paginate: 6
-paginate_path: "/page:num/"
+## Articles récents
 
-# --- URLs propres pour les articles
-permalink: /blog/:title/
+{% if paginator %}
+  <div class="posts-list">
+    {% for post in paginator.posts %}
+      <article class="post-preview">
+        <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+        
+        <p class="post-meta">
+          <time datetime="{{ post.date | date_to_xmlschema }}">
+            {{ post.date | date: "%d %B %Y" }}
+          </time>
+          {% if post.author %} • Par {{ post.author }}{% endif %}
+        </p>
+        
+        {% if post.excerpt %}
+          <p class="post-excerpt">{{ post.excerpt | strip_html | truncatewords: 40 }}</p>
+        {% endif %}
+        
+        <a href="{{ post.url | relative_url }}" class="read-more">Lire la suite →</a>
+      </article>
+    {% endfor %}
+  </div>
 
-# --- Auteur (affiché par minima / SEO)
-author:
-  name: "Argan Atelier"
-  email: "contact@huile-d-argan.fr"
-  url: "https://huile-d-argan.fr/a-propos/"
+  <!-- Navigation pagination -->
+  {% if paginator.total_pages > 1 %}
+    <nav class="pagination" aria-label="Navigation des pages">
+      {% if paginator.previous_page %}
+        <a href="{{ paginator.previous_page_path | relative_url }}" class="pagination-link prev">
+          ← Articles plus récents
+        </a>
+      {% endif %}
 
-# --- Réseaux sociaux (utilisés par jekyll-seo-tag)
-social:
-  name: "Argan Atelier"
-  links:
-    - https://github.com/tarikBelhaj/atelierargan   # dépôt du site
+      <span class="pagination-info">
+        Page {{ paginator.page }} sur {{ paginator.total_pages }}
+      </span>
 
-# --- Google Analytics (à ajouter plus tard)
-# google_analytics: G-VOTRE-ID-ICI
+      {% if paginator.next_page %}
+        <a href="{{ paginator.next_page_path | relative_url }}" class="pagination-link next">
+          Articles plus anciens →
+        </a>
+      {% endif %}
+    </nav>
+  {% endif %}
 
-# --- Images / Favicons (SEO & partages)
-logo: /assets/img/logo.png
-social_image: /assets/img/og-default.jpg
-
-# --- Options du thème minima
-minima:
-  skin: classic          # classic | dark
-  social_links:
-    - { platform: github,  user_url: "https://github.com/tarikBelhaj/atelierargan" }
-    - { platform: rss,     user_url: "/feed.xml" }
-
-# --- Markdown & rendu
-markdown: kramdown
-kramdown:
-  input: GFM
-  hard_wrap: false
-  toc_levels: 2..3
-
-# --- Collections & defaults
-collections:
-  posts:
-    output: true
-
-defaults:
-  - scope:
-      path: ""
-      type: "posts"
-    values:
-      layout: post
-      author: "Argan Atelier"
-      image: "/assets/img/og-default.jpg" # image par défaut pour les partages
-      lang: fr
-      sitemap: true
-
-# --- Exclusions (ne pas publier ces fichiers)
-exclude:
-  - "README.md"
-  - "node_modules"
-  - "package.json"
-  - "package-lock.json"
-  - ".github"
-  - ".vscode"
-
-# --- SEO avancé (jekyll-seo-tag)
-seo:
-  type: Blog
-  name: "Argan Atelier"
-  # twitter:
-  #   username: ""         # À ajouter après la creatiôn de twitter 
-  #   card: summary_large_image
+{% else %}
+  <div class="no-posts">
+    <p>Les premiers articles arrivent bientôt ! 🌟</p>
+    <p>En attendant, découvrez <a href="/a-propos/">notre mission</a> ou <a href="/contact/">contactez-nous</a>.</p>
+  </div>
+{% endif %}
