@@ -1,2 +1,11 @@
 title: Argan Atelier
-description: Blog beauté dédié à l’huile d’argan
+description: "Blog beauté dédié à l’huile d’argan"
+theme: minima
+
+# URL de ton site (à adapter si custom domaine)
+url: "https://tarikbelhaj.github.io"
+baseurl: "" # laisser vide sauf si ton site est dans un sous-dossier
+
+# Options minima
+show_excerpts: true
+paginate: 5
