@@ -1,3 +1,4 @@
+{% comment %}
 ---
 layout: default
 title: "Argan Atelier - Blog beauté huile d'argan"
@@ -64,3 +65,101 @@ description: "Découvrez tous les secrets de l'huile d'argan : bienfaits, routin
     <p>En attendant, découvrez <a href="/a-propos/">notre mission</a> ou <a href="/contact/">contactez-nous</a>.</p>
   </div>
 {% endif %}
+{% endcomment %}
+
+# --- Identité du site
+title: Argan Atelier
+tagline: "Beauté & bienfaits — l'huile d'argan, en profondeur"
+description: "Blog beauté dédié à l'huile d'argan : routines, bénéfices prouvés, conseils d'achat, comparatifs et protocoles experts."
+language: fr
+timezone: Europe/Paris
+
+# --- Domaine
+url: "https://huile-d-argan.fr"
+baseurl: ""
+
+# --- Thème
+theme: minima
+
+# --- Plugins (tous supportés par GitHub Pages)
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-feed
+  - jekyll-paginate
+  - jekyll-redirect-from
+
+# --- Configuration pagination (ESSENTIEL)
+paginate: 6
+paginate_path: "/page:num/"
+
+# --- URLs propres pour les articles
+permalink: /blog/:title/
+
+# --- Séparateur d'extrait
+excerpt_separator: "<!--more-->"
+
+# --- Auteur
+author:
+  name: "Argan Atelier"
+  email: "contact@huile-d-argan.fr"
+  url: "https://huile-d-argan.fr/a-propos/"
+
+# --- Réseaux sociaux
+social:
+  name: "Argan Atelier"
+  links:
+    - https://github.com/tarikBelhaj/atelierargan
+
+# --- Google Analytics (à ajouter plus tard)
+# google_analytics: G-VOTRE-ID-ICI
+
+# --- Images pour SEO
+logo: /assets/img/logo.png
+social_image: /assets/img/og-default.jpg
+
+# --- Options du thème minima
+minima:
+  skin: classic
+  social_links:
+    - { platform: github, user_url: "https://github.com/tarikBelhaj/atelierargan" }
+    - { platform: rss, user_url: "/feed.xml" }
+
+# --- Markdown
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+  toc_levels: 2..3
+
+# --- Collections
+collections:
+  posts:
+    output: true
+
+# --- Valeurs par défaut
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: post
+      author: "Argan Atelier"
+      image: "/assets/img/og-default.jpg"
+      lang: fr
+      sitemap: true
+
+# --- Fichiers à exclure
+exclude:
+  - "README.md"
+  - "node_modules"
+  - "package.json"
+  - "package-lock.json"
+  - ".github"
+  - ".vscode"
+  - "*.zip"
+
+# --- SEO
+seo:
+  type: Blog
+  name: "Argan Atelier"
