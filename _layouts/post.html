@@ -1,10 +1,47 @@
+
 ---
 layout: default
 ---
-<article>
-  <h1 style="margin-bottom:8px;">{{ page.title }}</h1>
-  <p style="opacity:.7;margin-top:0;">Publié le {% include date_fr.html %}</p>
-  <div class="post-content">
-    {{ content }}
-  </div>
-</article>
+
+<div class="container">
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">{{ page.title }}</h1>
+      <div class="post-meta">
+        <time datetime="{{ page.date | date_to_xmlschema }}">
+          {{ page.date | date: "%d %B %Y" }}
+        </time>
+        {% if page.author %} • Par {{ page.author }}{% endif %}
+        {% if page.reading_time %} • {{ page.reading_time }} min de lecture{% endif %}
+      </div>
+    </header>
+
+    <div class="post-content">
+      {{ content }}
+    </div>
+
+    <footer class="post-footer">
+      <div class="post-tags">
+        {% if page.tags %}
+          <span>Tags :</span>
+          {% for tag in page.tags %}
+            <span class="tag">#{{ tag }}</span>
+          {% endfor %}
+        {% endif %}
+      </div>
+
+      <nav class="post-navigation">
+        {% if page.previous %}
+          <a href="{{ page.previous.url | relative_url }}" class="nav-previous">
+            ← {{ page.previous.title }}
+          </a>
+        {% endif %}
+        {% if page.next %}
+          <a href="{{ page.next.url | relative_url }}" class="nav-next">
+            {{ page.next.title }} →
+          </a>
+        {% endif %}
+      </nav>
+    </footer>
+  </article>
+</div>
