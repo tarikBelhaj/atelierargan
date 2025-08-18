@@ -1,3 +1,94 @@
+# --- Identité du site
 title: Argan Atelier
-description: "Blog beauté dédié à l’huile d’argan"
+tagline: "Beauté & bienfaits — l'huile d'argan, en profondeur"
+description: "Blog beauté dédié à l'huile d'argan : routines, bénéfices prouvés, conseils d'achat, comparatifs et protocoles experts."
+language: fr
+timezone: Europe/Paris
+
+# --- Domaine
+url: "https://huile-d-argan.fr"   # ton domaine custom
+baseurl: ""                        # laisser vide avec un domaine racine
+
+# --- Thème
 theme: minima
+
+# --- Plugins (tous supportés par GitHub Pages)
+plugins:
+  - jekyll-seo-tag      # balises SEO automatiques (title, og:, twitter:)
+  - jekyll-sitemap      # /sitemap.xml
+  - jekyll-feed         # /feed.xml (RSS)
+  - jekyll-paginate     # pagination
+  - jekyll-redirect-from
+
+# --- Pagination
+paginate: 6
+paginate_path: "/page:num/"
+
+# --- URLs propres pour les articles
+permalink: /blog/:title/
+
+# --- Auteur (affiché par minima / SEO)
+author:
+  name: "Argan Atelier"
+  email: "contact@huile-d-argan.fr"
+  url: "https://huile-d-argan.fr/a-propos/"
+
+# --- Réseaux sociaux (utilisés par jekyll-seo-tag)
+social:
+  name: "Argan Atelier"
+  links:
+    - https://github.com/tarikBelhaj/atelierargan   # dépôt du site
+
+# --- Google Analytics (à ajouter plus tard)
+# google_analytics: G-VOTRE-ID-ICI
+
+# --- Images / Favicons (SEO & partages)
+logo: /assets/img/logo.png
+social_image: /assets/img/og-default.jpg
+
+# --- Options du thème minima
+minima:
+  skin: classic          # classic | dark
+  social_links:
+    - { platform: github,  user_url: "https://github.com/tarikBelhaj/atelierargan" }
+    - { platform: rss,     user_url: "/feed.xml" }
+
+# --- Markdown & rendu
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+  toc_levels: 2..3
+
+# --- Collections & defaults
+collections:
+  posts:
+    output: true
+
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: post
+      author: "Argan Atelier"
+      image: "/assets/img/og-default.jpg" # image par défaut pour les partages
+      lang: fr
+      sitemap: true
+
+# --- Exclusions (ne pas publier ces fichiers)
+exclude:
+  - "README.md"
+  - "node_modules"
+  - "package.json"
+  - "package-lock.json"
+  - ".github"
+  - ".vscode"
+
+# --- SEO avancé (jekyll-seo-tag)
+seo:
+  type: Blog
+  name: "Argan Atelier"
+  # twitter:
+  #   username: ""         # À ajouter si vous créez un compte Twitter
+  #   card: summary_large_image
