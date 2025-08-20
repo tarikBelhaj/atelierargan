@@ -50,7 +50,8 @@ description: "Découvrez tous nos articles de blog"
   <p>Navigation par pages :
     {% assign per_page = site.paginate | default: 6 %}
     {% assign total_pages = site.posts.size | divided_by: per_page %}
-    {% if site.posts.size modulo per_page > 0 %}
+    {% assign remainder = site.posts.size | modulo: per_page %}
+    {% if remainder > 0 %}
       {% assign total_pages = total_pages | plus: 1 %}
     {% endif %}
     {% for i in (1..total_pages) %}
