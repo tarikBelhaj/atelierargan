@@ -17,8 +17,6 @@ plugins:
   - jekyll-seo-tag
   - jekyll-sitemap
   - jekyll-feed
-  # jekyll-paginate -> RETIRÉ (cause le build failure)
-  # jekyll-redirect-from -> RETIRÉ (non supporté par GitHub Pages)
 
 # --- Configuration GitHub Pages
 github:
