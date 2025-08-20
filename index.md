@@ -15,7 +15,7 @@ description: "Découvrez tous les secrets de l'huile d'argan : bienfaits, routin
 
 ## Articles récents
 
-{% assign posts_to_show = paginator.posts | default: site.posts %}
+{% assign posts_to_show = site.posts | default: site.posts %}
 
 {% if posts_to_show.size > 0 %}
   <div class="posts-list">
