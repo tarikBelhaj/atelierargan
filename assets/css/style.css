@@ -208,7 +208,7 @@ body {
   display: flex;
   align-items: center;
   color: var(--color-white);
-  background: url('/assets/atelier-argan-hero.webp') center/cover no-repeat;
+  background: url('/assets/img/hero/atelier-argan-hero.webp') center/cover no-repeat;
   padding: var(--space-6xl) 0;
 }
 
