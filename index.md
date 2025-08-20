@@ -2,7 +2,6 @@
 layout: default
 title: "Argan Atelier - Blog beauté huile d'argan"
 description: "Découvrez tous les secrets de l'huile d'argan : bienfaits, routines beauté, conseils d'achat et comparatifs d'experts."
-paginate: true
 ---
 
 # Argan Atelier
