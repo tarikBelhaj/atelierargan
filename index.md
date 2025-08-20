@@ -36,26 +36,7 @@ description: "Découvrez tous les secrets de l'huile d'argan : bienfaits, routin
     {% endfor %}
   </div>
 
-  <!-- Navigation pagination (seulement si paginator existe) -->
-  {% if paginator and paginator.total_pages > 1 %}
-    <nav class="pagination" aria-label="Navigation des pages">
-      {% if paginator.previous_page %}
-        <a href="{{ paginator.previous_page_path | relative_url }}" class="pagination-link">
-          ← Articles plus récents
-        </a>
-      {% endif %}
-
-      <span class="pagination-info">
-        Page {{ paginator.page }} sur {{ paginator.total_pages }}
-      </span>
-
-      {% if paginator.next_page %}
-        <a href="{{ paginator.next_page_path | relative_url }}" class="pagination-link">
-          Suivant →
-        </a>
-      {% endif %}
-    </nav>
-  {% endif %}
+ 
 
 {% else %}
   <div class="no-posts">
