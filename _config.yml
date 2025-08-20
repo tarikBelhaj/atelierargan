@@ -12,7 +12,7 @@ baseurl: ""
 # --- Thème
 theme: minima
 
-# --- Plugins (tous supportés par GitHub Pages)
+# --- Plugins (supportés par GitHub Pages)
 plugins:
   - jekyll-seo-tag
   - jekyll-sitemap
@@ -20,7 +20,7 @@ plugins:
   - jekyll-paginate
   - jekyll-redirect-from
 
-# --- Configuration pagination (ESSENTIEL)
+# --- Pagination
 paginate: 6
 paginate_path: "/page:num/"
 
@@ -42,55 +42,13 @@ social:
   links:
     - https://github.com/tarikBelhaj/atelierargan
 
-# --- Google Analytics (à ajouter plus tard)
-# google_analytics: G-VOTRE-ID-ICI
+# --- Images/SEO (adapte si tu changes les fichiers)
+logo: /assets/hero/favicon.svg
+social_image: /assets/img/blog/les-bienfaits-de-lhuile-d_argan.webp
 
-# --- Images pour SEO
-logo: /assets/img/logo.png
-social_image: /assets/img/og-default.jpg
-
-# --- Options du thème minima
+# --- Options du thème Minima
 minima:
   skin: classic
   social_links:
     - { platform: github, user_url: "https://github.com/tarikBelhaj/atelierargan" }
-    - { platform: rss, user_url: "/feed.xml" }
-
-# --- Markdown
-markdown: kramdown
-kramdown:
-  input: GFM
-  hard_wrap: false
-  toc_levels: 2..3
-
-# --- Collections
-collections:
-  posts:
-    output: true
-
-# --- Valeurs par défaut
-defaults:
-  - scope:
-      path: ""
-      type: "posts"
-    values:
-      layout: post
-      author: "Argan Atelier"
-      image: "/assets/img/og-default.jpg"
-      lang: fr
-      sitemap: true
-
-# --- Fichiers à exclure
-exclude:
-  - "README.md"
-  - "node_modules"
-  - "package.json"
-  - "package-lock.json"
-  - ".github"
-  - ".vscode"
-  - "*.zip"
-
-# --- SEO
-seo:
-  type: Blog
-  name: "Argan Atelier"
+    - { platform: rss, user
