@@ -5,14 +5,14 @@ description: "Blog beauté dédié à l'huile d'argan : routines, bénéfices pr
 language: fr
 timezone: Europe/Paris
 
-# --- Domaine
+# --- Domaine (CNAME présent : huile-d-argan.fr)
 url: "https://huile-d-argan.fr"
-baseurl: ""
+baseurl: ""   # vide pour un domaine personnalisé
 
-# --- Thème
+# --- Thème (ok même si tu utilises tes layouts)
 theme: minima
 
-# --- Plugins (supportés par GitHub Pages)
+# --- Plugins (compatibles GitHub Pages)
 plugins:
   - jekyll-seo-tag
   - jekyll-sitemap
@@ -24,10 +24,10 @@ plugins:
 paginate: 6
 paginate_path: "/page:num/"
 
-# --- URLs propres pour les articles
+# --- URLs des articles
 permalink: /blog/:title/
 
-# --- Séparateur d'extrait
+# --- Extraits
 excerpt_separator: "<!--more-->"
 
 # --- Auteur
@@ -42,13 +42,52 @@ social:
   links:
     - https://github.com/tarikBelhaj/atelierargan
 
-# --- Images/SEO (adapte si tu changes les fichiers)
+# --- Images / SEO (chemins réels selon ton repo)
 logo: /assets/hero/favicon.svg
 social_image: /assets/img/blog/les-bienfaits-de-lhuile-d_argan.webp
 
-# --- Options du thème Minima
+# --- Options Minima (facultatif)
 minima:
   skin: classic
   social_links:
     - { platform: github, user_url: "https://github.com/tarikBelhaj/atelierargan" }
-    - { platform: rss, user
+    - { platform: rss, user_url: "/feed.xml" }
+
+# --- Markdown
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+  toc_levels: 2..3
+
+# --- Collections
+collections:
+  posts:
+    output: true
+
+# --- Valeurs par défaut
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: post
+      author: "Argan Atelier"
+      image: "/assets/img/blog/les-bienfaits-de-lhuile-d_argan.webp"
+      lang: fr
+      sitemap: true
+
+# --- Exclusions
+exclude:
+  - "README.md"
+  - "node_modules"
+  - "package.json"
+  - "package-lock.json"
+  - ".github"
+  - ".vscode"
+  - "*.zip"
+
+# --- SEO
+seo:
+  type: Blog
+  name: "Argan Atelier"
