@@ -1,3 +1,10 @@
+Voici ton fichier default.html corrigé avec la bonne syntaxe pour éviter les erreurs 404 sur le CSS. Le seul changement se fait sur la ligne du style.css.
+
+
+---
+
+✅ Version corrigée :
+
 <!DOCTYPE html>
 <html lang="{{ page.lang | default: site.language | default: 'fr' }}">
 <head>
@@ -15,7 +22,7 @@
   <link rel="icon" href="{{ '/assets/img/favicon.svg' | relative_url }}" type="image/svg+xml">
 
   <!-- CSS principal (avec cache-busting) -->
-  <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.time | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}?v={{ site.time }}">
 
   {% if site.social_image %}
     <meta property="og:image" content="{{ site.social_image | absolute_url }}">
@@ -57,3 +64,35 @@
   </footer>
 </body>
 </html>
+
+
+---
+
+🧠 Pourquoi ça marche maintenant :
+
+Avant :
+
+{{ '/assets/css/style.css?v=' | append: site.time | relative_url }}
+
+👉 Cela cassait le chemin avec relative_url appliqué au mauvais moment.
+
+Maintenant :
+
+{{ '/assets/css/style.css' | relative_url }}?v={{ site.time }}
+
+👉 Le chemin est propre (/assets/css/style.css), puis le cache-busting est ajouté après, sans toucher à la génération de l’URL.
+
+
+---
+
+⚠️ N’oublie pas :
+
+Commit la modification
+
+Déploie via GitHub Pages
+
+Fais un Ctrl+F5 ou vide ton cache navigateur si tu ne vois pas tout de suite les changements.
+
+
+Si tu veux que je t’aide à vérifier les liens des articles ou d’autres fichiers dans ton dépôt, fais-moi signe 🧼✨
+
