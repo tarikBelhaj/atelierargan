@@ -22,7 +22,7 @@ plugins:
 github:
   is_project_page: false
 
-# --- Pagination (DÉSACTIVÉE temporairement - on la réactivera avec une solution JS)
+# --- Pagination (désactivée temporairement)
 # paginate: 6
 # paginate_path: "/page:num/"
 
@@ -44,8 +44,8 @@ social:
   links:
     - https://github.com/tarikBelhaj/atelierargan
 
-# --- Images / SEO (chemins réels selon ton repo)
-logo: /assets/hero/favicon.svg
+# --- Images / SEO
+logo: /assets/img/favicon.svg
 social_image: /assets/img/blog/les-bienfaits-de-lhuile-d_argan.webp
 
 # --- Options Minima (facultatif)
@@ -92,6 +92,15 @@ exclude:
   - "Gemfile"
   - "Gemfile.lock"
   - "vendor/"
+
+# --- Forcer l'inclusion des assets statiques
+include:
+  - assets
+  - assets/css
+  - assets/img
+  - assets/img/hero
+  - assets/img/blog
+  - assets/img/cards
 
 # --- SEO
 seo:
