@@ -11,18 +11,39 @@ description: "Découvrez tous nos articles de blog"
   <p>Aucun article pour le moment.</p>
 {% else %}
 
-<ul class="articles-list">
+<div class="articles-grid">
   {% assign posts_all = site.posts | sort: "date" | reverse %}
   {% for post in posts_all %}
-    <li class="article-item">
-      <a href="{{ post.url | relative_url }}"><strong>{{ post.title }}</strong></a><br>
-      <small>Publié le {{ post.date | date: "%d %B %Y" }}</small><br>
-      <p>{{ post.description | default: post.excerpt | strip_html | truncatewords: 20 }}</p>
-    </li>
-  {% endfor %}
-</ul>
+    <article class="article-card">
+      <a class="article-thumb" href="{{ post.url | relative_url }}">
+        {% if post.image %}
+          <img src="{{ post.image | relative_url }}" alt="{{ post.image_alt | default: post.title }}">
+        {% else %}
+          <div class="thumb-placeholder" aria-hidden="true">ARGAN</div>
+        {% endif %}
+      </a>
 
-<hr>
+      <div class="article-body">
+        <h2 class="article-title">
+          <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+        </h2>
+
+        <p class="article-meta">
+          <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%d %B %Y" }}</time>
+          {% if post.author %} • {{ post.author }}{% endif %}
+        </p>
+
+        <p class="article-excerpt">
+          {{ post.description | default: post.excerpt | strip_html | truncatewords: 28 }}
+        </p>
+
+        <a class="article-read" href="{{ post.url | relative_url }}">Lire la suite →</a>
+      </div>
+    </article>
+  {% endfor %}
+</div>
+
+<hr class="articles-sep">
 
 <div class="pagination-links">
   <p><strong>{{ site.posts.size }}</strong> articles au total</p>
