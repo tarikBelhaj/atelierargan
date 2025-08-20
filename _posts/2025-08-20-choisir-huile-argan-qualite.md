@@ -27,5 +27,3 @@ L'huile d'argan pure a une couleur dorée et une odeur légèrement noisetée, j
 ## Où acheter
 
 Les coopératives féminines marocaines offrent souvent les meilleures garanties de qualité et d'authenticité.
-
----
