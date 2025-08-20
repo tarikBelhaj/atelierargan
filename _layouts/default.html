@@ -15,7 +15,7 @@
   <link rel="icon" href="{{ '/assets/img/hero/favicon.svg' | relative_url }}" type="image/svg+xml">
 
   <!-- CSS principal (avec cache-busting) -->
-  <link rel="stylesheet" href="{{ '/assets/css/test.css?v=' | append: site.time | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/test.scss?v=' | append: site.time | relative_url }}">
 
   {% if site.social_image %}
     <meta property="og:image" content="{{ site.social_image | absolute_url }}">
