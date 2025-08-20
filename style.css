@@ -134,6 +134,12 @@ body {
   text-decoration: underline;
 }
 
+.nav-links a.active {
+  color: var(--color-brand-primary);
+  text-decoration: underline;
+  font-weight: var(--font-weight-semibold);
+}
+
 /* ================== BUTTONS ================== */
 .btn {
   background: var(--color-brand-primary);
