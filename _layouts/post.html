@@ -1,7 +1,18 @@
+---
+layout: default
+---
+
 <div class="container">
-  <article class="post" itemscope itemtype="https://schema.org/BlogPosting">
+  <article class="post fade-in" itemscope itemtype="https://schema.org/BlogPosting">
     <header class="post-header">
+      <div class="post-category">
+        {% if page.tags and page.tags.first %}
+          <span class="article-tag">{{ page.tags.first }}</span>
+        {% endif %}
+      </div>
+      
       <h1 class="post-title" itemprop="headline">{{ page.title }}</h1>
+      
       <div class="post-meta">
         <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
           {{ page.date | date: "%d %B %Y" }}
@@ -11,11 +22,18 @@
             • Par <span itemprop="name">{{ page.author }}</span>
           </span>
         {% endif %}
-        {% if page.reading_time %} • {{ page.reading_time }} min de lecture{% endif %}
+        {% if page.reading_time %}
+          <span class="read-time">⏱ {{ page.reading_time }} min de lecture</span>
+        {% endif %}
       </div>
       
       {% if page.image %}
-        <img src="{{ page.image | relative_url }}" alt="{{ page.image_alt | default: page.title }}" class="post-image" itemprop="image">
+        <div class="post-image-container">
+          <img src="{{ page.image | relative_url }}" 
+               alt="{{ page.image_alt | default: page.title }}" 
+               class="post-image" 
+               itemprop="image">
+        </div>
       {% endif %}
     </header>
 
@@ -26,27 +44,51 @@
     <footer class="post-footer">
       {% if page.tags %}
         <div class="post-tags">
-          <span>Tags :</span>
-          {% for tag in page.tags %}
-            <a href="{{ '/tags/#' | append: tag | relative_url }}" class="tag">#{{ tag }}</a>
-          {% endfor %}
+          <span class="tags-label">Tags :</span>
+          <div class="tags-list">
+            {% for tag in page.tags %}
+              <a href="{{ '/tags/#' | append: tag | relative_url }}" class="tag">#{{ tag }}</a>
+            {% endfor %}
+          </div>
         </div>
       {% endif %}
 
       <nav class="post-navigation" aria-label="Navigation des articles">
-        {% if page.previous %}
-          <a href="{{ page.previous.url | relative_url }}" class="nav-previous">
-            ← {{ page.previous.title }}
-          </a>
-        {% endif %}
-        {% if page.next %}
-          <a href="{{ page.next.url | relative_url }}" class="nav-next">
-            {{ page.next.title }} →
-          </a>
+        {% if page.previous or page.next %}
+          <div class="nav-links">
+            {% if page.previous %}
+              <a href="{{ page.previous.url | relative_url }}" class="nav-previous">
+                <span class="nav-direction">← Article précédent</span>
+                <span class="nav-title">{{ page.previous.title }}</span>
+              </a>
+            {% endif %}
+            {% if page.next %}
+              <a href="{{ page.next.url | relative_url }}" class="nav-next">
+                <span class="nav-direction">Article suivant →</span>
+                <span class="nav-title">{{ page.next.title }}</span>
+              </a>
+            {% endif %}
+          </div>
         {% endif %}
       </nav>
+
+      <!-- Newsletter CTA dans l'article -->
+      <div class="post-newsletter-cta">
+        <div class="newsletter-card">
+          <h3>Restez connecté à la beauté naturelle</h3>
+          <p>Recevez nos derniers conseils beauté et découvertes sur l'huile d'argan directement dans votre boîte mail.</p>
+          <form class="newsletter-form">
+            <input type="email" 
+                   class="newsletter-input" 
+                   placeholder="Votre adresse email" 
+                   required>
+            <button type="submit" class="btn">S'abonner</button>
+          </form>
+        </div>
+      </div>
     </footer>
     
+    <!-- Schema.org JSON-LD -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -79,3 +121,301 @@
     </script>
   </article>
 </div>
+
+<style>
+/* Styles spécifiques aux articles */
+.post {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 0 4rem;
+}
+
+.post-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding-top: 6rem; /* Compensation header fixe */
+}
+
+.post-category {
+  margin-bottom: 1.5rem;
+}
+
+.post-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: var(--font-weight-bold);
+  color: var(--dark);
+  margin: 0 0 1.5rem 0;
+  line-height: 1.2;
+  background: linear-gradient(135deg, var(--dark), var(--earth), var(--primary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.post-meta {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  color: var(--earth);
+  font-size: 0.95rem;
+  font-weight: var(--font-weight-medium);
+  margin-bottom: 2rem;
+}
+
+.post-image-container {
+  margin: 2rem 0;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+
+.post-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.post-content {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--dark);
+}
+
+.post-content h2 {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  color: var(--dark);
+  margin: 2.5rem 0 1rem 0;
+  border-bottom: 3px solid var(--accent);
+  padding-bottom: 0.5rem;
+}
+
+.post-content h3 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  color: var(--earth);
+  margin: 2rem 0 1rem 0;
+}
+
+.post-content p {
+  margin: 1.5rem 0;
+}
+
+.post-content ul, 
+.post-content ol {
+  margin: 1.5rem 0;
+  padding-left: 2rem;
+}
+
+.post-content li {
+  margin: 0.5rem 0;
+}
+
+.post-content blockquote {
+  background: var(--glass);
+  border-left: 4px solid var(--accent);
+  padding: 1.5rem 2rem;
+  margin: 2rem 0;
+  border-radius: var(--radius-lg);
+  font-style: italic;
+  backdrop-filter: blur(10px);
+}
+
+.post-content code {
+  background: var(--sand-light);
+  padding: 0.2rem 0.4rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.9em;
+  color: var(--earth);
+}
+
+.post-content pre {
+  background: var(--dark);
+  color: var(--sand-light);
+  padding: 1.5rem;
+  border-radius: var(--radius-lg);
+  overflow-x: auto;
+  margin: 2rem 0;
+}
+
+.post-content pre code {
+  background: none;
+  padding: 0;
+  color: inherit;
+}
+
+.post-footer {
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--glass-border);
+}
+
+.post-tags {
+  margin-bottom: 3rem;
+}
+
+.tags-label {
+  font-weight: var(--font-weight-semibold);
+  color: var(--earth);
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.tags-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tag {
+  background: var(--glass);
+  color: var(--accent-dark);
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-full);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: var(--font-weight-medium);
+  border: 1px solid var(--glass-border);
+  transition: all var(--transition-base);
+}
+
+.tag:hover {
+  background: var(--accent);
+  color: white;
+  transform: translateY(-2px);
+}
+
+.post-navigation {
+  margin: 3rem 0;
+}
+
+.nav-links {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.nav-previous, 
+.nav-next {
+  background: var(--glass);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  text-decoration: none;
+  color: var(--dark);
+  transition: all var(--transition-base);
+  display: block;
+}
+
+.nav-previous:hover, 
+.nav-next:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--accent);
+}
+
+.nav-previous {
+  text-align: left;
+}
+
+.nav-next {
+  text-align: right;
+}
+
+.nav-direction {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--accent-dark);
+  font-weight: var(--font-weight-medium);
+  margin-bottom: 0.5rem;
+}
+
+.nav-title {
+  display: block;
+  font-weight: var(--font-weight-semibold);
+  color: var(--dark);
+  font-size: 1.1rem;
+}
+
+.post-newsletter-cta {
+  margin: 4rem 0 2rem 0;
+}
+
+.newsletter-card {
+  background: linear-gradient(135deg, var(--sand-light), var(--warm-beige));
+  padding: 3rem 2rem;
+  border-radius: var(--radius-xl);
+  text-align: center;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--glass-border);
+}
+
+.newsletter-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  color: var(--dark);
+  margin-bottom: 1rem;
+}
+
+.newsletter-card p {
+  color: var(--earth);
+  margin-bottom: 2rem;
+  font-size: 1rem;
+}
+
+/* Responsive pour les articles */
+@media (max-width: 768px) {
+  .post {
+    padding: 1rem 0 3rem;
+  }
+  
+  .post-header {
+    padding-top: 4rem;
+  }
+  
+  .post-title {
+    font-size: 2rem;
+  }
+  
+  .post-meta {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .post-content {
+    font-size: 1rem;
+  }
+  
+  .post-content h2 {
+    font-size: 1.5rem;
+  }
+  
+  .post-content h3 {
+    font-size: 1.3rem;
+  }
+  
+  .nav-links {
+    grid-template-columns: 1fr;
+  }
+  
+  .nav-next {
+    text-align: left;
+  }
+  
+  .newsletter-card {
+    padding: 2rem 1.5rem;
+  }
+  
+  .newsletter-card h3 {
+    font-size: 1.5rem;
+  }
+  
+  .newsletter-form {
+    flex-direction: column;
+  }
+}
+</style>
