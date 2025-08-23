@@ -1,0 +1,33 @@
+name: Publier nouvel article
+
+on:
+  push:
+    paths:
+      - '_posts/*/.md'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout du code
+        uses: actions/checkout@v3
+
+      - name: Configurer Ruby (pour Jekyll)
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.1'
+
+      - name: Installer les dépendances
+        run: |
+          gem install bundler
+          bundle install || true
+
+      - name: Construire le site Jekyll
+        run: bundle exec jekyll build
+
+      - name: Déployer sur GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./_site
