@@ -1,1 +1,0 @@
---- layout: post title: "Article généré automatiquement" date: YYYY-09-Sep 14, 2025 ---  
